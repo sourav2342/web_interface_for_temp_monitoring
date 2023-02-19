@@ -1,0 +1,219 @@
+<!--<!DOCTYPE HTML>
+<html>
+<head>
+
+</head>
+<body>
+
+
+    <script type="text/javascript">
+      var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}, {x: 5, y: 17},{x: 6, y: 10}, {x: 7, y: 13}, {x: 8, y: 18}, {x: 9, y: 20}, {x: 10, y: 17}];   //dataPoints.
+    </script>
+  	<script type="text/javascript">
+  	window.onload = function () {
+
+
+        var chart = new CanvasJS.Chart("chartContainer",{
+        	title :{
+        		text: "Live Data"
+        	},
+        	axisX: {
+        		title: "Axis X Title"
+        	},
+        	axisY: {
+        		title: "Units"
+        	},
+        	data: [{
+        		type: "line",
+        		dataPoints : dps
+        	}]
+        });
+
+        chart.render();
+        var xVal = dps.length + 1;
+        var yVal = 0;
+        var updateInterval = 1000;
+
+        var updateChart = function () {
+
+          let i = 10;
+
+         fetch('http://localhost:3000/data').then(response => response.text()).then(data => {yVal = Number(data);}).catch(error => console.error(error));
+
+          dps.push({x:xVal,y:yVal});
+
+        	xVal++;
+        	if (dps.length >  10 )
+        	{
+        		dps.shift();
+        	}
+
+        	chart.render();
+
+  	// update chart after specified time.
+
+  };
+
+  setInterval(function(){updateChart()}, updateInterval);
+  }
+  </script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<div id="chartContainer" style="height: 300px; width: 40%;">
+	</div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+     <link rel="stylesheet" href="app.css">
+    <meta charset="utf-8">
+    <title>temperature monitoring</title>
+
+    <script type="text/javascript">
+      //javascript code DOM mode to change entr,Modified;
+
+    </script>
+
+  </head>
+  <body>
+
+    <div id="wrap">
+      <div class="container">
+
+        <h1 class= "title">Temperature Monitor</h1>
+        <div class="row">
+
+              <ul class="nav-tabs">
+                <li class="view">
+                <a href="#" id= "link_to_view_graph">Graph</a>
+                </li>
+                <li >
+                <a href="" id= "Link_to_key_generator">API key</a>
+                </li>
+                <li >
+                <a href="" id= "link_to_Settings">Channel Settings</a>
+                </li>
+
+
+              </ul>
+              <hr>
+
+        </div>
+
+        <div class="col_space">
+
+          <div class="row">
+
+            <h2>Status</h2>
+            <ul class="info">
+
+              <li>
+                Modified:
+                <abbr class="time_ago_modified" title="2023-01-26T08:41:46Z"> </abbr>
+              </li>
+
+              <li>
+                Entries:
+                <span id="entry_cnt"></span>
+              </li>
+
+            </ul>
+
+          </div>
+
+
+
+        </div>
+
+        <div class="row">
+
+          <div class="colum">
+
+            <div class="window_container">
+
+                <div class="window_header">
+                  <div class="window_title" title="Plot 1">
+
+                  </div>
+
+                  <div class="window_file" id="export_file">
+                      <div id="export_button">
+                         <button type="button" name="button">Export Data</button>
+                      </div>
+
+                  </div>
+
+                  <div class="window" id="plot">
+
+                   <script type="text/javascript">
+      var dps = [{x: 1, y: 10}, {x: 2, y: 13}, {x: 3, y: 18}, {x: 4, y: 20}, {x: 5, y: 17},{x: 6, y: 10}, {x: 7, y: 13}, {x: 8, y: 18}, {x: 9, y: 20}, {x: 10, y: 17}];   //dataPoints.
+    </script>
+  	<script type="text/javascript">
+  	window.onload = function () {
+
+
+        var chart = new CanvasJS.Chart("chartContainer",{
+        	title :{
+        		text: "Live Data"
+        	},
+        	axisX: {
+        		title: "Axis X Title"
+        	},
+        	axisY: {
+        		title: "Units"
+        	},
+        	data: [{
+        		type: "line",
+        		dataPoints : dps
+        	}]
+        });
+
+        chart.render();
+        var xVal = dps.length + 1;
+        var yVal = 0;
+        var updateInterval = 1000;
+
+        var updateChart = function () {
+
+          let i = 10;
+
+         fetch('http://localhost:3000/data').then(response => response.text()).then(data => {yVal = Number(data);}).catch(error => console.error(error));
+
+          dps.push({x:xVal,y:yVal});
+
+        	xVal++;
+        	if (dps.length >  10 )
+        	{
+        		dps.shift();
+        	}
+
+        	chart.render();
+
+
+
+  };
+
+  setInterval(function(){updateChart()}, updateInterval);
+  }
+  </script>
+  <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<div id="chartContainer" style="height: 300px; width: 40%;">
+	</div>
+
+                  </div>
+                </div>
+              </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
