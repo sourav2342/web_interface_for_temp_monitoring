@@ -33,7 +33,7 @@ var http = require('http');
         });
         req.on('end', function () {
 
-           //console.log(body);
+           console.log(body);
 
            curr_temperature = Number(body);
 
