@@ -5,7 +5,7 @@ const serv = express();
 const cors = require('cors');
 
 
-app.use(cors());
+serv.use(cors());
 
 //serv.use(express.static(path.join(__dirname,'css')));
 
