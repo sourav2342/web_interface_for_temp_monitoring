@@ -2,7 +2,10 @@ var curr_temperature = 0;
 
 const express = require('express');
 const serv = express();
-const path = require('path');
+const cors = require('cors');
+
+
+app.use(cors());
 
 //serv.use(express.static(path.join(__dirname,'css')));
 
