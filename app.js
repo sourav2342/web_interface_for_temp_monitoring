@@ -17,7 +17,7 @@ serv.use(express.static("html&css"));
 
 serv.listen(3000);
 
-serv.get("/data", function(req, res){
+serv.get("/", function(req, res){
 
     res.status(200).send(String(curr_temperature));
 
