@@ -180,7 +180,7 @@
           let i = 10;
 
          fetch('https://web-interface.onrender.com/data').then(response => response.text()).then(data => {yVal = Number(data);}).catch(error => console.error(error));
-
+	// port shouln't be mentioned in the link while makng get request to web server in the fetch method.
           dps.push({x:xVal,y:yVal});
 
         	xVal++;
