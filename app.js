@@ -50,5 +50,5 @@ var http = require('http');
 });
 
 server.listen(8080, function(){
-  console.log("Server is listening at 3000");
+  console.log("Server is listening at 8080");
 });
