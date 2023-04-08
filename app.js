@@ -1,4 +1,4 @@
-var curr_temperature = 0;
+var curr_temperature = 12;
 
 const express = require('express');
 const serv = express();
@@ -26,9 +26,10 @@ serv.get("/", function(req, res){
 
 
 var http = require('http');
+
   var server = http.createServer(function (req, res) {
-
-
+      
+     
     if (req.method === 'POST' && req.url === '/post_data') {
         let body = '';
         req.on('data', function (data) {
@@ -40,15 +41,14 @@ var http = require('http');
 
            curr_temperature = Number(body);
 
-
-
-           //res.end('ok');
         });
-    } else {
+    } 
+    else {
         res.end('Not Found');
     }
+      
 });
 
-server.listen(8080, function(){
-  console.log("Server is listening");
+server.listen(3000, function(){
+  console.log("Server is listening at 3000");
 });
